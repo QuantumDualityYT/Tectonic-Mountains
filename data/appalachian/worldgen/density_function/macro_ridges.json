@@ -1,0 +1,82 @@
+{
+  "type": "minecraft:flat_cache",
+  "argument": {
+    "type": "minecraft:cache_2d",
+    "argument": {
+      "type": "minecraft:spline",
+      "spline": {
+        "coordinate": {
+          "type": "minecraft:abs",
+          "argument": {
+            "type": "minecraft:noise",
+            "noise": "tectonic:region/heart/rolling_hills",
+            "xz_scale": 0.026,
+            "y_scale": 0.0
+          }
+        },
+        "points": [
+          {
+            "location": 0.0,
+            "value": 0.025,
+            "derivative": 0.0
+          },
+          {
+            "location": 0.08,
+            "value": 0.06,
+            "derivative": 0.2
+          },
+          {
+            "location": 0.18,
+            "value": 0.155,
+            "derivative": 0.55
+          },
+          {
+            "location": 0.28,
+            "value": 0.27,
+            "derivative": 0.45
+          },
+          {
+            "location": 0.34,
+            "value": 0.335,
+            "derivative": 0.05
+          },
+          {
+            "location": 0.41,
+            "value": 0.355,
+            "derivative": 0.05
+          },
+          {
+            "location": 0.5,
+            "value": 0.475,
+            "derivative": 0.75
+          },
+          {
+            "location": 0.59,
+            "value": 0.61,
+            "derivative": 0.25
+          },
+          {
+            "location": 0.68,
+            "value": 0.665,
+            "derivative": 0.1
+          },
+          {
+            "location": 0.78,
+            "value": 0.815,
+            "derivative": 0.55
+          },
+          {
+            "location": 0.88,
+            "value": 0.925,
+            "derivative": 0.25
+          },
+          {
+            "location": 1.0,
+            "value": 1.02,
+            "derivative": 0.0
+          }
+        ]
+      }
+    }
+  }
+}

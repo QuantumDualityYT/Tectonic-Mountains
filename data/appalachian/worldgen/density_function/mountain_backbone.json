@@ -1,0 +1,62 @@
+{
+  "type": "minecraft:flat_cache",
+  "argument": {
+    "type": "minecraft:cache_2d",
+    "argument": {
+      "type": "minecraft:spline",
+      "spline": {
+        "coordinate": {
+          "type": "minecraft:abs",
+          "argument": {
+            "type": "minecraft:noise",
+            "noise": "tectonic:region/height_multiplier",
+            "xz_scale": 0.014,
+            "y_scale": 0.0
+          }
+        },
+        "points": [
+          {
+            "location": 0.0,
+            "value": 0.0,
+            "derivative": 0.0
+          },
+          {
+            "location": 0.16,
+            "value": 0.01,
+            "derivative": 0.1
+          },
+          {
+            "location": 0.3,
+            "value": 0.045,
+            "derivative": 0.3
+          },
+          {
+            "location": 0.44,
+            "value": 0.105,
+            "derivative": 0.45
+          },
+          {
+            "location": 0.58,
+            "value": 0.19,
+            "derivative": 0.5
+          },
+          {
+            "location": 0.72,
+            "value": 0.285,
+            "derivative": 0.45
+          },
+          {
+            "location": 0.86,
+            "value": 0.365,
+            "derivative": 0.25
+          },
+          {
+            "location": 1.0,
+            "value": 0.405,
+            "derivative": 0.0
+          }
+        ]
+      }
+    }
+  }
+}

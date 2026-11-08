@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:flat_cache",
+  "argument": {
+    "type": "minecraft:add",
+    "argument1": {
+      "type": "minecraft:mul",
+      "argument1": "appalachian:inland_base",
+      "argument2": {
+        "type": "minecraft:add",
+        "argument1": 1,
+        "argument2": {
+          "type": "minecraft:mul",
+          "argument1": -1,
+          "argument2": "appalachian:river_weight"
+        }
+      }
+    },
+    "argument2": {
+      "type": "minecraft:mul",
+      "argument1": -0.55,
+      "argument2": "appalachian:river_weight"
+    }
+  }
+}

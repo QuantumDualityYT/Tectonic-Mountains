@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "com.quantumduality.tectonicmountains.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "CreateWorldAccess"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "PackPriorityMixin"
+  ]
+}

@@ -1,0 +1,51 @@
+plugins { id 'fabric-loom' version '1.7.4' }
+version = '2.14.23'
+group = 'com.quantumduality.tectonicmountains'
+base { archivesName = 'tectonic-mountains-1.20.1-fabric' }
+repositories { mavenCentral() }
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+dependencies {
+ minecraft 'com.mojang:minecraft:1.20.1'
+ mappings loom.officialMojangMappings()
+ modImplementation 'net.fabricmc:fabric-loader:0.16.14'
+ modImplementation 'net.fabricmc.fabric-api:fabric-api:0.92.6+1.20.1'
+}
+processResources {
+ inputs.property 'version', project.version
+ filesMatching('fabric.mod.json') { expand version: project.version }
+ from('data') { exclude '**/forge/**'; into 'resourcepacks/terrain/data' }
+ from('pack.mcmeta') { into 'resourcepacks/terrain' }
+ from('LICENSE')
+}
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
+tasks.register('verifyStreamPlanner', JavaExec) {
+ dependsOn testClasses
+ classpath = sourceSets.test.runtimeClasspath
+ mainClass = 'com.quantumduality.tectonicmountains.StreamPlannerCheck'
+ workingDir = projectDir
+}
+check.dependsOn 'verifyStreamPlanner'
+
+tasks.register('verifyStreamShape', JavaExec) {
+ dependsOn testClasses
+ classpath = sourceSets.test.runtimeClasspath
+ mainClass = 'com.quantumduality.tectonicmountains.StreamShapeCheck'
+ workingDir = projectDir
+}
+check.dependsOn 'verifyStreamShape'
+
+tasks.register('verifyWorldSettings', JavaExec) {
+ dependsOn testClasses
+ classpath = sourceSets.test.runtimeClasspath
+ mainClass = 'com.quantumduality.tectonicmountains.WorldSettingsCheck'
+ workingDir = projectDir
+}
+check.dependsOn 'verifyWorldSettings'
+
+tasks.register('verifyTerrainPack', JavaExec) {
+ dependsOn testClasses
+ classpath = sourceSets.test.runtimeClasspath
+ mainClass = 'com.quantumduality.tectonicmountains.TerrainPackCheck'
+ workingDir = projectDir
+}
+check.dependsOn 'verifyTerrainPack'

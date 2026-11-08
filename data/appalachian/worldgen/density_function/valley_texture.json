@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:mul",
+  "argument1": 0.045,
+  "argument2": {
+    "type": "minecraft:abs",
+    "argument": {
+      "type": "minecraft:noise",
+      "noise": "tectonic:region/height_multiplier",
+      "xz_scale": 0.03,
+      "y_scale": 0.0
+    }
+  }
+}
