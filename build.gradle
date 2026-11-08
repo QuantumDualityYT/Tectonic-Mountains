@@ -1,0 +1,64 @@
+plugins {
+    id 'net.neoforged.moddev' version '2.0.148'
+}
+version = '2.14.23'
+group = 'com.quantumduality.tectonicmountains'
+base { archivesName = 'tectonic-mountains-1.21.1-neoforge' }
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+neoForge { version = '21.1.265'; mods { tectonic_mountains { sourceSet sourceSets.main } } }
+sourceSets.main.resources.srcDirs = ['src/main/resources']
+tasks.named('processResources') {
+    from('META-INF') { into 'META-INF' }
+    from('pack.mcmeta')
+    from('LICENSE')
+    from('data') { into 'terrain/data' }
+    from('pack.mcmeta') { into 'terrain' }
+}
+
+
+tasks.register('verifyTerrainPack', JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'com.quantumduality.tectonicmountains.TerrainPackCheck'
+    workingDir = projectDir
+}
+tasks.named('check') { dependsOn 'verifyTerrainPack' }
+
+tasks.register('verifyStreamPlanner', JavaExec) {
+ dependsOn testClasses
+ classpath = sourceSets.test.runtimeClasspath
+ mainClass = 'com.quantumduality.tectonicmountains.StreamPlannerCheck'
+}
+tasks.named('check') { dependsOn 'verifyStreamPlanner' }
+
+tasks.register('verifyStreamShape', JavaExec) {
+ dependsOn testClasses
+ classpath = sourceSets.test.runtimeClasspath
+ mainClass = 'com.quantumduality.tectonicmountains.StreamShapeCheck'
+}
+tasks.named('check') { dependsOn 'verifyStreamShape' }
+
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
+tasks.register('verifyWorldSettings', JavaExec) {
+ dependsOn testClasses
+ classpath = sourceSets.test.runtimeClasspath
+ mainClass = 'com.quantumduality.tectonicmountains.WorldSettingsCheck'
+ workingDir = projectDir
+}
+tasks.named('check') { dependsOn 'verifyWorldSettings' }
+sourceSets.test.compileClasspath += sourceSets.main.compileClasspath
+sourceSets.test.runtimeClasspath += sourceSets.main.runtimeClasspath
+tasks.named('test') { failOnNoDiscoveredTests = false }
+// Headless loader/registry smoke check; no desktop client is opened.
+neoForge.runs {
+ gameTestServer {
+  type = 'gameTestServer'
+  systemProperty 'neoforge.enabledGameTestNamespaces', 'tectonic_mountains'
+ }
+}
+dependencies { runtimeOnly fileTree(dir: 'dependencies', include: '*.jar') }
+
+// Test harness is available to the development run, never included in release artifacts.
+jar { exclude "**/GenerationSmokeCheck.class" }
+
+jar { exclude "data/tectonic_mountains/structure/smoke_empty.nbt" }

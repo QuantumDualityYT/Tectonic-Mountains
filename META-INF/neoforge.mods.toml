@@ -1,0 +1,50 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT"
+showAsResourcePack=false
+
+[[mods]]
+modId="tectonic_mountains"
+version="2.14.23"
+displayName="Tectonic Mountains"
+authors="QuantumDuality"
+description='''
+Transforms Tectonic + Terralith world generation into a dense, green,
+Appalachian-inspired landscape with large mountain ranges, broad valleys,
+spruce and pine forests, and old-growth Terralith trees.
+'''
+
+[[dependencies.tectonic_mountains]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1,1.21.2)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.tectonic_mountains]]
+modId="neoforge"
+type="required"
+versionRange="[21.1.265,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.tectonic_mountains]]
+modId="tectonic"
+type="required"
+versionRange="[3.0.17,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies.tectonic_mountains]]
+modId="terralith"
+type="required"
+versionRange="[2.5.4,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies.tectonic_mountains]]
+modId="lithostitched"
+type="required"
+versionRange="[1.5.7,1.6)"
+ordering="AFTER"
+side="BOTH"
