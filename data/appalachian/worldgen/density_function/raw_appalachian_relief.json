@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:add",
+  "argument1": {
+    "type": "minecraft:add",
+    "argument1": "appalachian:macro_ridges",
+    "argument2": "appalachian:mountain_backbone"
+  },
+  "argument2": "appalachian:valley_texture"
+}

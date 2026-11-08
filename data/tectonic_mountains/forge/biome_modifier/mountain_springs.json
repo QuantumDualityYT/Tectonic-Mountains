@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": [
+    "tectonic_mountains:mountain_spring"
+  ],
+  "step": "local_modifications"
+}
